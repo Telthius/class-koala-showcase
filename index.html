@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Class Koala — Portfolio Showcase</title>
+  <title>Class Koala</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -32,9 +32,9 @@
         <span class="text-emerald-400">new Rails architectures</span>
       </h1>
       <p class="text-gray-400 text-lg max-w-2xl">
-        Class Koala is a scheduling, enrolment, and invoicing platform I'm building for my wife's small rural ballet school.
-        I'm building it out as if it were a SaaS product — partly because it might become one, but mostly as a way to
-        encounter real architectural challenges rather than contrived examples.
+        Class Koala is a scheduling, enrolment and invoicing platform I'm building for my wife's small rural ballet school.
+        I'm treating it like a real SaaS product because it might become one, and because that pressure makes for much more
+        interesting engineering decisions.
       </p>
       <div class="flex flex-wrap gap-3 pt-2">
         <a
@@ -60,7 +60,7 @@
         <h2 class="text-base font-semibold text-white">Demo Account</h2>
       </div>
       <p class="text-sm text-gray-400">
-        Use these credentials to explore the app. The demo account is scoped to a sandboxed tenant with pre-seeded data.
+        Log in and have a look around. The demo account sits in its own tenant with some pre-seeded data to give you a feel for things.
       </p>
       <div class="grid sm:grid-cols-2 gap-4">
         <div class="bg-gray-800 rounded-lg p-4">
@@ -78,14 +78,15 @@
     <section class="space-y-3">
       <h2 class="text-2xl font-semibold text-white">Where it came from</h2>
       <p class="text-gray-400 leading-relaxed">
-        My wife runs a small ballet school in rural Australia. Managing class schedules, student enrolments, and invoicing
-        is a genuine pain — existing tools are either too generic or priced for large studios.
-        Class Koala started as a solution to a real problem, and I'm treating it as if I intend to sell it one day.
-        That constraint forces decisions that a toy project never would: how do you safely separate data between schools?
-        How do you handle billing per tenant? What does the domain model actually look like when the problem is real?
+        My wife runs a small ballet school out in rural Australia. Keeping track of class schedules, who's enrolled in what,
+        and chasing invoices is a real headache. The tools that exist are either too generic or built for large studios with
+        budgets to match. So I started building something.
       </p>
       <p class="text-gray-400 leading-relaxed">
-        Whether it goes anywhere commercially is an open question — but building with that ambition has been the point.
+        I decided early on to build it like I actually intended to sell it one day. That changes the questions you ask.
+        How do you keep one school's data away from another's? How does billing work per tenant? What should the data model
+        actually look like when the problem is real and not made up for a tutorial? Whether it ever becomes a product is
+        genuinely uncertain, but that's kind of the point.
       </p>
     </section>
 
@@ -102,7 +103,7 @@
           </div>
           <h3 class="font-semibold text-white">Multitenancy</h3>
           <p class="text-sm text-gray-400">
-            Row-level tenant isolation using scoped queries and middleware, ensuring data separation between schools/organisations without separate databases.
+            Each school gets its own isolated slice of the database using row-level scoping. One app, one database, but each tenant only ever sees their own data.
           </p>
         </div>
 
@@ -114,7 +115,7 @@
           </div>
           <h3 class="font-semibold text-white">Real-time Broadcasting</h3>
           <p class="text-sm text-gray-400">
-            ActionCable with Turbo Streams to push live updates to connected clients — no page refreshes, no polling.
+            Using ActionCable with Turbo Streams to push updates to the page without a refresh. It's something I'd read about plenty but hadn't actually built before.
           </p>
         </div>
 
@@ -126,7 +127,7 @@
           </div>
           <h3 class="font-semibold text-white">Data Modelling</h3>
           <p class="text-sm text-gray-400">
-            Modelling a domain from scratch is its own discipline. I've done data modelling before, but greenfield design — deciding what entities exist, how they relate, and what constraints matter — surfaces different questions than working within an existing schema.
+            I've worked with existing schemas plenty but designing one from scratch is a different thing. Figuring out what the entities actually are, how they relate and where the edges of the domain sit has been one of the more interesting parts of this project.
           </p>
         </div>
 
@@ -140,7 +141,7 @@
         <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">Rails 8</span>
         <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">Ruby 3.2</span>
         <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">PostgreSQL</span>
-        <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">Hotwire — Turbo + Stimulus</span>
+        <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">Hotwire (Turbo + Stimulus)</span>
         <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">ActionCable</span>
         <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">TailwindCSS</span>
         <span class="bg-gray-800 text-gray-300 text-sm px-3 py-1.5 rounded-full border border-gray-700">ViewComponent</span>
@@ -150,9 +151,7 @@
     <!-- Honest note -->
     <section class="border-l-4 border-amber-500 pl-5 py-1">
       <p class="text-gray-400 text-sm leading-relaxed">
-        <span class="text-amber-400 font-medium">Note:</span> This project is intentionally incomplete — it's a learning vehicle built in my own time, not a finished product.
-        The goal was to build something with real stakes: a genuine domain, real users (eventually), and production deployment.
-        That context forces better decisions than a tutorial ever could. It's ongoing.
+        <span class="text-amber-400 font-medium">Heads up:</span> This is very much a work in progress. I'm building it in my own time and sharing it because the patterns it explores are more interesting to me than a polished finish line right now. It's ongoing.
       </p>
     </section>
 
