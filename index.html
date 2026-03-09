@@ -32,9 +32,9 @@
         <span class="text-emerald-400">new Rails architectures</span>
       </h1>
       <p class="text-gray-400 text-lg max-w-2xl">
-        Class Koala is a classroom management application I built in my own time to get hands-on with
-        patterns I hadn't used professionally — multitenancy, real-time broadcasting, and intentional
-        data modelling in Rails 8.
+        Class Koala is a scheduling, enrolment, and invoicing platform I'm building for my wife's small rural ballet school.
+        I'm building it out as if it were a SaaS product — partly because it might become one, but mostly as a way to
+        encounter real architectural challenges rather than contrived examples.
       </p>
       <div class="flex flex-wrap gap-3 pt-2">
         <a
@@ -74,6 +74,21 @@
       </div>
     </section>
 
+    <!-- Origin -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-white">Where it came from</h2>
+      <p class="text-gray-400 leading-relaxed">
+        My wife runs a small ballet school in rural Australia. Managing class schedules, student enrolments, and invoicing
+        is a genuine pain — existing tools are either too generic or priced for large studios.
+        Class Koala started as a solution to a real problem, and I'm treating it as if I intend to sell it one day.
+        That constraint forces decisions that a toy project never would: how do you safely separate data between schools?
+        How do you handle billing per tenant? What does the domain model actually look like when the problem is real?
+      </p>
+      <p class="text-gray-400 leading-relaxed">
+        Whether it goes anywhere commercially is an open question — but building with that ambition has been the point.
+      </p>
+    </section>
+
     <!-- What I Explored -->
     <section class="space-y-6">
       <h2 class="text-2xl font-semibold text-white">What I set out to explore</h2>
@@ -111,7 +126,7 @@
           </div>
           <h3 class="font-semibold text-white">Data Modelling</h3>
           <p class="text-sm text-gray-400">
-            Designing a domain model for a school context — accounts, tenants, classes, enrolments — with deliberate relationship and constraint choices.
+            Modelling a domain from scratch is its own discipline. I've done data modelling before, but greenfield design — deciding what entities exist, how they relate, and what constraints matter — surfaces different questions than working within an existing schema.
           </p>
         </div>
 
@@ -135,9 +150,9 @@
     <!-- Honest note -->
     <section class="border-l-4 border-amber-500 pl-5 py-1">
       <p class="text-gray-400 text-sm leading-relaxed">
-        <span class="text-amber-400 font-medium">Note:</span> This project is intentionally incomplete — it's a learning vehicle, not a finished product.
-        The goal was to build something real enough to encounter the actual challenges of these patterns,
-        not just read about them. It's ongoing.
+        <span class="text-amber-400 font-medium">Note:</span> This project is intentionally incomplete — it's a learning vehicle built in my own time, not a finished product.
+        The goal was to build something with real stakes: a genuine domain, real users (eventually), and production deployment.
+        That context forces better decisions than a tutorial ever could. It's ongoing.
       </p>
     </section>
 
@@ -146,7 +161,7 @@
   <!-- Footer -->
   <footer class="border-t border-gray-800 mt-20 px-6 py-8">
     <div class="max-w-4xl mx-auto text-center text-sm text-gray-600">
-      Built by Patrick &mdash; <a href="https://www.classkoala.com" class="text-gray-500 hover:text-gray-300 transition-colors">classkoala.com</a>
+      Built by <a href="https://github.com/Telthius" class="text-gray-500 hover:text-gray-300 transition-colors">Telthius</a> &mdash; <a href="https://www.classkoala.com" class="text-gray-500 hover:text-gray-300 transition-colors">classkoala.com</a>
     </div>
   </footer>
 
